@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { LoginComponent } from '../pages/autentication/login/login.component';
 import { CadastroComponent } from '../pages/autentication/cadastro/cadastro.component';
@@ -8,16 +8,21 @@ import { PixCadastroComponent } from '../pages/app/pix-cadastro/pix-cadastro.com
 import { ExtratoComponent } from '../pages/app/extrato/extrato.component';
 import { VisualizarChavePixComponent } from '../pages/app/visualizar-chave-pix/visualizar-chave-pix.component';
 import { PerfilComponent } from '../pages/perfil/perfil.component';
+import { OptionsComponent } from '../pages/autentication/auth/options/options.component';
+import { NgModule } from '@angular/core';
 
 export const routes: Routes = [
     {
-        path: '', redirectTo: 'login', pathMatch: 'full'
+        path: '', redirectTo: 'auth', pathMatch: 'full'
+    },
+    {
+        path: 'auth', component: OptionsComponent
     },
     {
         path: 'login', component: LoginComponent,
     },
     {
-        path: 'cadastro', component: CadastroComponent,
+        path: 'register', component: CadastroComponent,
     },
     {
         path: 'app', component: AppComponent, children: [
@@ -44,3 +49,8 @@ export const routes: Routes = [
     }
 ];
 
+@NgModule({
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
+})
+export class AppRoutingModule { }
