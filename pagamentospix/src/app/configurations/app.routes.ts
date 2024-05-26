@@ -11,7 +11,7 @@ import { PerfilComponent } from '../pages/perfil/perfil.component';
 
 export const routes: Routes = [
     {
-        path: '', redirectTo: 'login', pathMatch: 'full',
+        path: '', redirectTo: 'login', pathMatch: 'full'
     },
     {
         path: 'login', component: LoginComponent,
