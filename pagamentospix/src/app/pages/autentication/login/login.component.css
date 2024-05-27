@@ -82,13 +82,16 @@ label[for="password"] {
 input[type="email"],
 input[type="password"] {
     width: 90%;
-    height: 32px;
+    height: 30px;
     padding: 3px;
     background-color: rgba(162, 159, 159, 0.27);
     border: 1px solid rgba(162, 159, 159, 0.27);
     border-radius: 12px;
     display: block;
     margin: 0 auto;
+    font-family: 'Outfit', sans-serif;
+    font-size: 12px;
+    color: #333333;
 }
 
 
@@ -139,4 +142,12 @@ input[type="password"]:focus {
     text-decoration: none;
     color: inherit;
     font-weight: normal;
+}
+
+.error {
+    color: red;
+    font-size: 10px;
+    margin-left: 10px;
+    font-family: 'Outfit', sans-serif;
+
 }
