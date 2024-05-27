@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap');
+
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #232526;
+
+}
+
+.auth-box {
+    display: flex;
+    width: 762px;
+    height: 397px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-bottom-left-radius: 170px;
+    background-color: #332940;
+    overflow: hidden;
+}
+
+.left-side {
+    background-color: #332940;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-bottom-left-radius: 170px;
+}
+
+.left-side img {
+    position: absolute;
+    left: 15px;
+    /* Coordenada X */
+    top: 50px;
+    /* Coordenada Y */
+    width: 456px;
+    height: 293px;
+}
+
+.right-side {
+    background-color: #ffffff;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Montserrat Alternates', sans-serif;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+    width: 80%;
+}
