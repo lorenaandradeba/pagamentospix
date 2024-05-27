@@ -1,59 +1,60 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300&display=swap');
-* {
+ *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Outfit', sans-serif
 }
-body{
-    height: 900px;
-}
-nav.menu-lateral {
-    width: 80px;
-    height: 100%;
-    padding: 40px 0 40px 1%;
-    box-shadow: 1px 0 0 #ffffff;
 
-    position: fixed;
-    top: 0;
-    left: 0;
-    overflow: hidden;
-    transition: .5s;
-}
-nav.menu-lateral:hover {
-    width: 300px;
-}
-.btn-expandir {
-   width: 100%;
-   padding-left: 10px;
-   font-size: 30px;
-}
-.btn-expandir img {
-    color: white;
-    font-size: 24px;
-    cursor: pointer;
-}
-ul {
-    height: 100%;
-    list-style: none;
-}
-ul li.item-menu:hover {
-    background-color: #bb86fc;
-    transition: .5s;
-}
-ul li.item-menu a{
-    color:white;
-    text-decoration: none;
-    font-size: 20px;
-    padding: 20px 4%;
+.menu-lateral {
+    
     display: flex;
-    margin-bottom: 20px;
-    line-height: 50px;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 99.6vh;
+    width: 84px;
+    padding-top: 20px;
+    border-right: solid 1px white;
+    box-sizing: border-box; /* Inclui padding e border no tamanho total */
 }
-ul li.item-menu a .txt-link {
-    margin-left: 40px;
+
+/* .menu-lateral:hover{
+    position: relative;
+    width: 200px;
+    transition: 1s;
+}  */
+.menu-itens {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
-ul li.item-menu a .icon > img {
-    font-size: 30px;
-    margin-left: 10px;
+
+a {
+    display: block;
+    text-align: center;
+    margin-bottom: 15px;
 }
+
+a img{
+ 
+    -webkit-user-drag: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    pointer-events: none;
+}
+a:active{
+    transform: scale(0.9);
+}
+.menu-itens a.active div {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background-color: #BB86FC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 1s;
+  }
+
+ 
+  

@@ -1,4 +1,17 @@
 .container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
+    display: flex;
+    height: 100vh; /* Preenche a altura total da viewport */
+  }
+  
+  app-sidenav {
+    width: auto; /* Largura fixa para a sidebar */
+    background-color: #f4f4f400; /* Cor de fundo para a sidebar */
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1); /* Sombra para a sidebar */
+  }
+  
+  .content {
+    flex: 1;
+    padding: 16px;
+    overflow-y: auto; /* Adiciona rolagem se o conteúdo for muito grande */
+  }
+  

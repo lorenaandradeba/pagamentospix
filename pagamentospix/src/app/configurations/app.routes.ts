@@ -3,13 +3,14 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from '../pages/autentication/login/login.component';
 import { CadastroComponent } from '../pages/autentication/cadastro/cadastro.component';
 import { PixComponent } from '../pages/app/pix/pix.component';
-import { TransferenciaComponent } from '../pages/app/transferencia/transferencia.component';
-import { PixCadastroComponent } from '../pages/app/pix-cadastro/pix-cadastro.component';
-import { ExtratoComponent } from '../pages/app/extrato/extrato.component';
-import { VisualizarChavePixComponent } from '../pages/app/visualizar-chave-pix/visualizar-chave-pix.component';
+import { PixCadastroComponent } from '../pages/app/pix/pix-cadastro/pix-cadastro.component';
+
+import { VisualizarChavePixComponent } from '../pages/app/pix/visualizar-chave-pix/visualizar-chave-pix.component';
 import { PerfilComponent } from '../pages/perfil/perfil.component';
 import { OptionsComponent } from '../pages/autentication/auth/options/options.component';
 import { NgModule } from '@angular/core';
+import { ExtratoComponent } from '../pages/app/pix/extrato/extrato.component';
+import { TransferenciaComponent } from '../pages/app/pix/transferencia/transferencia.component';
 
 export const routes: Routes = [
     {
@@ -25,27 +26,24 @@ export const routes: Routes = [
         path: 'register', component: CadastroComponent,
     },
     {
-        path: 'app', component: AppComponent, children: [
+        path: 'app', component: PixComponent, children: [
             {
-                path: 'pix', component: PixComponent, children: [
-                    {
-                        path: 'transferência', component: TransferenciaComponent,
-                    },
-                    {
-                        path: 'cadastro', component: PixCadastroComponent,
-                    },
-                    {
-                        path: 'extrato', component: ExtratoComponent,
-                    },
-                    {
-                        path: 'visualizar', component: VisualizarChavePixComponent,
-                    }
-                ]
+                path: 'extrato', component: ExtratoComponent,
             },
+            {
+                path: 'transferencia', component: TransferenciaComponent,
+            },
+            {
+                path: 'pix-cadastro', component: PixCadastroComponent,
+            },
+            {
+                path: 'visualizar-chave-pix', component: VisualizarChavePixComponent,
+            },          
             {
                 path: 'perfil', component: PerfilComponent,
             }
         ]
+      
     }
 ];
 
