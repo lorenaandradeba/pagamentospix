@@ -11,6 +11,7 @@ import { OptionsComponent } from '../pages/autentication/auth/options/options.co
 import { NgModule } from '@angular/core';
 import { ExtratoComponent } from '../pages/app/pix/extrato/extrato.component';
 import { TransferenciaComponent } from '../pages/app/pix/transferencia/transferencia.component';
+import { HomeComponent } from '../pages/app/pix/home/home.component';
 
 export const routes: Routes = [
     {
@@ -27,6 +28,9 @@ export const routes: Routes = [
     },
     {
         path: 'app', component: PixComponent, children: [
+            {
+                path: 'home', component: HomeComponent,
+            },
             {
                 path: 'extrato', component: ExtratoComponent,
             },
