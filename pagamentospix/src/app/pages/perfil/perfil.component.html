@@ -8,8 +8,8 @@
             <p>Conta:{{conta}}</p>
         </div>
     </div>
-    <div class="container-perfil-atualizar" >
-        <form [formGroup]="perfilForme" (ngSubmit)="onSubmit()">
+    <div  >
+        <form [formGroup]="perfilForme" (ngSubmit)="onSubmit()" class="container-perfil-atualizar">
             <div class="input-group">
                 <label for="Nome">Nome</label>
                 <input type="text" id="Nome" formControlName="nome">
@@ -26,6 +26,7 @@
                 <label for="Email">Email</label>
                 <input type="email" id="Email" formControlName="email">
             </div>
+            
             <div class="input-group">
                 <label for="Senha">Senha</label>
                 <input type="password" id="Senha" formControlName="senha">

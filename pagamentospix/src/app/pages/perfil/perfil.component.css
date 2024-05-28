@@ -1,11 +1,13 @@
 .layout-Perfil{
-    display: grid;
-    grid-template-columns: 20% 1fr;
-    grid-template-rows: 1fr;
-    grid-column-gap: 29px;
-    grid-row-gap: 0px;
-    width: 70%;
-    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    height: 100vh;
+    height: 100%;
+    gap: 150px;
+    justify-content: center;
+    align-items: baseline;
+   
 }
 .container-perfil{
     display: flex;
@@ -13,6 +15,7 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
+    
 }
 .container-perfil img{
     width: 112px;
@@ -30,8 +33,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 10px;
+    justify-content: right;
+    gap: 15px;
+    
 }
 
 .container-perfil-atualizar input{
@@ -39,11 +43,17 @@
     height: 42px;
     border-radius: 12px;
     background-color: #818181;
-    color: white;
+    color: #FFFFFF;
     border: none;
     box-sizing: border-box;
     font-size: 22px;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 400;
     padding: 17px;
+}
+
+form{
+    width: 100%;
 }
 
 .container-perfil-atualizar input:focus{
