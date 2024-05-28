@@ -1,0 +1,91 @@
+.layout-Perfil{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    height: 100vh;
+    height: 100%;
+    gap: 150px;
+    justify-content: center;
+    align-items: baseline;
+   
+}
+.container-perfil{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    
+}
+.container-perfil img{
+    width: 112px;
+    height: 112px;
+}
+.container-perfil p{
+    font-size: 22px;
+    font-family: 'Outfit', sans-serif;
+    color: #6F6F6F;
+    font-weight: 400;
+    text-align: center;
+}
+
+.container-perfil-atualizar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: right;
+    gap: 15px;
+    
+}
+
+.container-perfil-atualizar input{
+    width: 492px;
+    height: 42px;
+    border-radius: 12px;
+    background-color: #818181;
+    color: #FFFFFF;
+    border: none;
+    box-sizing: border-box;
+    font-size: 22px;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 400;
+    padding: 17px;
+}
+
+form{
+    width: 100%;
+}
+
+.container-perfil-atualizar input:focus{
+    outline: none;
+    border: 1px solid #818181;
+}
+
+.input-group{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.input-group label{
+    font-size: 16px;
+    font-family: 'Outfit', sans-serif;
+    color: white;
+    font-weight: 400;
+}
+
+button{
+    width: 215px;
+    height: 60px;
+    border-radius: 10px;
+    background-color: #BB86FC;
+    font-family: 'Mosterat Alternate', sans-serif;
+    font-size: 20px;
+    color: white;
+    border: none;
+    display: block;
+    margin: 0 auto;
+    margin-top: 25px;
+}
+button:active{
+    transform: scale(0.95);
+}
