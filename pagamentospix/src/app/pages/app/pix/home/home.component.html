@@ -1,0 +1,46 @@
+<div class="container-home">
+    <div class="perfil">
+        <div>
+            <div class ="container-perfil">
+                <div class="fulano">
+                    <div>
+                        <img [src]="src" alt="iconeperfil">
+                    </div>
+                    <div>
+                        <div>
+                            <p>Olá, {{nome}}</p>
+                        </div>
+                        <div>
+                            <h1>R$ {{saldo}}</h1>
+                        </div>
+                    </div>
+                    <div>
+                        icone de exibição
+                    </div>
+                </div>
+                <div>
+                   <img [src]="barra" alt="progresso">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="pix-options">
+        <div>
+            <a routerLink="/app/transferencia" ><img src="../../../../assets/icons/pix.svg" alt="pix"></a>
+        </div>
+        <div>
+            <a routerLink="/app/pix-cadastro" ><img src="../../../../assets/icons/cadastrarPix.svg" alt="pix"></a>
+        </div>
+        <div>
+            <a routerLink="/app/visualizar-chave-pix" ><img src="../../../../assets/icons/chavePix.svg" alt="pix"></a>
+        </div>
+        <div>
+            <a routerLink="/app/extrato" ><img src="../../../../assets/icons/transacoes.svg" alt="pix"></a>
+        </div>    
+    </div>
+    <div class="ultimastransacoes">
+        <div>
+            <p>Últimas transações</p>
+        </div>
+    </div>
+</div>
