@@ -1,0 +1,41 @@
+<div class="layout-Perfil">
+    <div class="container-perfil">
+        <div>
+            <img src="/assets/icons/fulano.svg" alt="">
+        </div>
+        <div>
+            <p>Agencia:{{agencia}}</p>
+            <p>Conta:{{conta}}</p>
+        </div>
+    </div>
+    <div class="container-perfil-atualizar" >
+        <form [formGroup]="perfilForme" (ngSubmit)="onSubmit()">
+            <div class="input-group">
+                <label for="Nome">Nome</label>
+                <input type="text" id="Nome" formControlName="nome">
+            </div>
+            <div class="input-group">
+                <label for="Cpf">Cpf</label>
+                <input type="text" id="Cpf" formControlName="cpf">
+            </div>
+            <div class="input-group">
+                <label for="Telefone">Telefone</label>
+                <input type="text" id="Telefone" formControlName="telefone">
+            </div>
+            <div class="input-group">
+                <label for="Email">Email</label>
+                <input type="email" id="Email" formControlName="email">
+            </div>
+            <div class="input-group">
+                <label for="Senha">Senha</label>
+                <input type="password" id="Senha" formControlName="senha">
+            </div>
+
+            <div >
+                <button type="submit">Atualizar</button>
+            </div>
+        </form>
+
+
+    </div>
+</div>
