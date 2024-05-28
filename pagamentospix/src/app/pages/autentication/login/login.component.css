@@ -126,6 +126,7 @@ input[type="password"]:focus {
     text-decoration: none;
     font-weight: bold;
     color: #000;
+    cursor: pointer;
 }
 
 .forgot-password {
@@ -143,6 +144,7 @@ input[type="password"]:focus {
     color: inherit;
     font-weight: normal;
 }
+
 
 .error {
     color: red;

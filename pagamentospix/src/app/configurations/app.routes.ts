@@ -9,9 +9,9 @@ import { VisualizarChavePixComponent } from '../pages/app/pix/visualizar-chave-p
 import { PerfilComponent } from '../pages/perfil/perfil.component';
 import { OptionsComponent } from '../pages/autentication/auth/options/options.component';
 import { NgModule } from '@angular/core';
-import { ExtratoComponent } from '../pages/app/pix/extrato/extrato.component';
 import { TransferenciaComponent } from '../pages/app/pix/transferencia/transferencia.component';
 import { HomeComponent } from '../pages/app/pix/home/home.component';
+import { ExtratoComponent } from '../pages/app/pix/extrato/extrato.component';
 
 export const routes: Routes = [
     {

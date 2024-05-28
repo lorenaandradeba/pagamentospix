@@ -1,1 +1,77 @@
-<p>cadastro works!</p>
+<div class="register-container">
+    <div class="register-box">
+        <div class="left-side">
+            <img src="/assets/icons/login/Moneyverse Business Balance.svg" alt="Image">
+        </div>
+        <div class="right-side">
+            <div class="content">
+                <h2>Nice to meet you!</h2>
+                <form [formGroup]="formCadastro" (ngSubmit)="onSubmit()">
+                    <div class="input-group">
+                        <div>
+                            <label for="firstName">First Name</label>
+                            <input type="text" id="firstName" placeholder="Nome" formControlName="firstName">
+                            <div *ngIf="firstName?.invalid && (firstName?.dirty || firstName?.touched)" class="error">
+                                <div *ngIf="firstName?.errors?.['required']">Nome obrigatório</div>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="lastName">Last Name</label>
+                            <input type="text" id="lastName" placeholder="Sobrenome" formControlName="lastName">
+                            <div *ngIf="lastName?.invalid && (lastName?.dirty || lastName?.touched)" class="error">
+                                <div *ngIf="lastName?.errors?.['required']">Sobrenome obrigatório</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <div>
+                            <label for="cpf">CPF</label>
+                            <input type="text" id="cpf" placeholder="000.000.000-00" formControlName="cpf" appMask="cpf">
+                            <div *ngIf="cpf?.invalid && (cpf?.dirty || cpf?.touched)" class="error">
+                                <div *ngIf="cpf?.errors?.['required']">CPF obrigatório</div>
+                                <div *ngIf="cpf?.errors?.['pattern']">CPF inválido</div>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="telefone">Telefone</label>
+                            <input type="text" id="telefone" placeholder="(00) 00000-0000" formControlName="telefone" >
+                            <div *ngIf="telefone?.invalid && (telefone?.dirty || telefone?.touched)" class="error">
+                                <div *ngIf="telefone?.errors?.['required']">Telefone obrigatório</div>
+                                <div *ngIf="telefone?.errors?.['pattern']">Telefone inválido</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <div>
+                            <label for="email">Email address</label>
+                            <input type="email" id="email" placeholder="pDz5m@example.com" formControlName="email">
+                            <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="error">
+                                <div *ngIf="email?.errors?.['required']">E-mail obrigatório</div>
+                                <div *ngIf="email?.errors?.['email']">Endereço de e-mail inválido</div>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="password">Password</label>
+                            <input type="password" id="password" placeholder="**********" formControlName="password">
+                            <div *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="error">
+                                <div *ngIf="password?.errors?.['required']">Senha obrigatória</div>
+                                <div *ngIf="password?.errors?.['minlength']">Senha deve possuir, no mínimo, 8
+                                    caracteres.</div>
+                                <div *ngIf="password?.errors?.['pattern']">
+                                    8 digitos, A * 1 b
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="custom-checkbox">
+                        
+                        <input type="checkbox" id="termos">
+                            <span class="checkmark">Eu concordo com os <a href="#">Termos</a></span>
+                       
+                    </div>
+                    <button type="submit"  onclick=" onSubmit()" class="register-button">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

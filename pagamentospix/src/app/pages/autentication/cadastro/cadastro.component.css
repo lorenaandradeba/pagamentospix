@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap');
+
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #232526;
+
+}
+
+.register-box {
+    display: flex;
+    width: 762px;
+    height: 397px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-bottom-left-radius: 170px;
+    background-color: #332940;
+    overflow: hidden;
+}
+
+.left-side {
+    background-color: #332940;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-bottom-left-radius: 170px;
+}
+
+.left-side img {
+    width: 544px;
+    height: 359px;
+    margin-top: 48px;
+    margin-right: 23px;
+}
+
+.right-side {
+    background-color: #ffffff;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Montserrat Alternates', sans-serif;
+  
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+    justify-content: center;
+    padding: 10px;
+    width: 80%;
+  
+
+}
+
+.input-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+h1 {
+   font-family:'Montserrat Alternates', sans-serif;
+}
+
+label {
+    display: block;
+    text-align: left;
+    font-size: 14px;
+    margin-bottom: 5px;
+    margin-left: 10px;
+    font-family: 'Outfit', sans-serif;
+    color: #6F6F6F;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px
+}
+input[type="text"],
+input[type="email"],
+input[type="password"]{
+   padding: 10px;
+    border: 1px solid rgba(162, 159, 159, 0.27);
+    border-radius: 12px;
+    display: block;
+    
+}
+
+#firstName{
+    width: 100px;
+}
+#lastName{
+   width: 150px;
+}
+#cpf{
+    width: 100px;
+}
+#telefone{
+    width: 120px;
+}
+#email{
+    width: 160px;
+}
+#password{
+    display: block;
+    width: 90px;
+    text-align: center;
+    
+}
+
+input[type="email"]:focus,
+input[type="text"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    border-color: #BB86FC;
+}
+
+.checkmark{
+    font-family: 'Outfit', sans-serif;
+    color: #6F6F6F;
+    margin-left: 10px;
+}
+#termos:checked{
+    background-color: white;
+    accent-color: #BB86FC;
+    background-attachment: fixed;
+    cursor: pointer;
+}
+
+
+/* #custom-checkbox input[type="checkbox"] {
+    margin-right: 5px;
+    accent-color: #BB86FC;
+    background-attachment: fixed;
+    cursor: pointer;
+} */
+.error {
+    transition: 0.6s;
+    color: red;
+    font-size: 10px;
+    margin-left: 10px;
+    font-family: 'Outfit', sans-serif;
+
+}
+.register-button {
+    display: block;
+    text-align: center;
+    background-color: #BB86FC;
+    color: #ffffff;
+    border: none;
+    width: 243px;
+    border-radius: 12px;
+    padding: 10px;
+    font-size: 14px;
+    font-family: 'Outfit', sans-serif;
+    cursor: pointer;
+    margin: 0 auto;
+   
+}
+.register-button:hover {
+    background-color: #a662fa;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+.register-button:active {
+    transform: scale(0.95);
+}
