@@ -1,1 +1,15 @@
-<p>pix-cadastro works!</p>
+<div class="pix-cadastro-container">
+    <div class="pix-cadastro-box">
+      <h2>Cadastro de PIX</h2>
+      <form [formGroup]="pixForm" (ngSubmit)="onSubmit()" class="form-pix-cadastro">
+        <select formControlName="keyType">
+          <option value="1">CPF</option>
+          <option value="2">TELEFONE</option>
+          <option value="3">EMAIL</option>
+          <option value="4">CHAVE ALEATÓRIA</option>
+        </select>
+        <button type="submit">Cadastrar</button>
+      </form>
+    </div>
+  </div>
+  
