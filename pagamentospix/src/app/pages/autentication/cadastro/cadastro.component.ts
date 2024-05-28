@@ -1,17 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Router, RouterModule } from '@angular/router';
-import { AuthenticationService } from '../../../services/auth/authentication.service';
-import { Observable, switchMap } from 'rxjs';
-import { BancoService } from '../../../services/banco.service';
-import { Conta } from '../../../models/Conta';
-import { Pessoa } from '../../../models/Pessoa';
+import { AppMaskDirective } from '../../../pipi/app-mask.directive';
+
 
 @Component({
   selector: 'app-cadastro',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, RouterModule],
+  imports: [CommonModule, ReactiveFormsModule, AppMaskDirective],
   templateUrl: './cadastro.component.html',
   styleUrls: ['./cadastro.component.css']
 })

@@ -26,7 +26,7 @@
                     <div class="input-group">
                         <div>
                             <label for="cpf">CPF</label>
-                            <input type="text" id="cpf" placeholder="000.000.000-00" formControlName="cpf" appMask="cpf">
+                            <input type="text" id="cpf" placeholder="000.000.000-00" formControlName="cpf" appMask="cpf" maxlength="14">
                             <div *ngIf="cpf?.invalid && (cpf?.dirty || cpf?.touched)" class="error">
                                 <div *ngIf="cpf?.errors?.['required']">CPF obrigatório</div>
                                 <div *ngIf="cpf?.errors?.['pattern']">CPF inválido</div>
@@ -34,7 +34,7 @@
                         </div>
                         <div>
                             <label for="telefone">Telefone</label>
-                            <input type="text" id="telefone" placeholder="(00) 00000-0000" formControlName="telefone" >
+                            <input type="text" id="telefone" placeholder="(00) 00000-0000" formControlName="telefone" appMask="telefone" maxlength="15">
                             <div *ngIf="telefone?.invalid && (telefone?.dirty || telefone?.touched)" class="error">
                                 <div *ngIf="telefone?.errors?.['required']">Telefone obrigatório</div>
                                 <div *ngIf="telefone?.errors?.['pattern']">Telefone inválido</div>
@@ -69,7 +69,7 @@
                             <span class="checkmark">Eu concordo com os <a href="#">Termos</a></span>
                        
                     </div>
-                    <button type="submit" class="register-button">Register</button>
+                    <button type="submit"   class="register-button">Register</button>
                 </form>
             </div>
         </div>
