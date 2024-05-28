@@ -34,7 +34,7 @@
                         </div>
                         <div>
                             <label for="telefone">Telefone</label>
-                            <input type="text" id="telefone" placeholder="(00) 00000-0000" formControlName="telefone" appMask="phone">
+                            <input type="text" id="telefone" placeholder="(00) 00000-0000" formControlName="telefone" >
                             <div *ngIf="telefone?.invalid && (telefone?.dirty || telefone?.touched)" class="error">
                                 <div *ngIf="telefone?.errors?.['required']">Telefone obrigatório</div>
                                 <div *ngIf="telefone?.errors?.['pattern']">Telefone inválido</div>
@@ -58,8 +58,7 @@
                                 <div *ngIf="password?.errors?.['minlength']">Senha deve possuir, no mínimo, 8
                                     caracteres.</div>
                                 <div *ngIf="password?.errors?.['pattern']">
-                                    Senha deve conter, no mínimo, uma letra maiúscula, uma letra minúscula, um número,
-                                    e um caracter especial.
+                                    8 digitos, A * 1 b
                                 </div>
                             </div>
                         </div>
@@ -70,7 +69,7 @@
                             <span class="checkmark">Eu concordo com os <a href="#">Termos</a></span>
                        
                     </div>
-                    <button type="submit" class="register-button">Register</button>
+                    <button type="submit"  onclick=" onSubmit()" class="register-button">Register</button>
                 </form>
             </div>
         </div>
