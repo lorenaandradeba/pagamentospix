@@ -1,11 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AppMaskDirective } from '../../../pipi/app-mask.directive';
+
 
 @Component({
   selector: 'app-cadastro',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, AppMaskDirective],
   templateUrl: './cadastro.component.html',
   styleUrls: ['./cadastro.component.css']
 })
@@ -19,7 +21,7 @@ export class CadastroComponent implements OnInit {
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       cpf: ['', [Validators.required, Validators.pattern('^\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}$')]],
-      telefone: ['', [Validators.required, Validators.pattern('^\\(\\d{2}\\) \\d{5}-\\d{4}$')]],
+      telefone: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       password: [
         '',
