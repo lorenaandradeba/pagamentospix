@@ -2,6 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AppMaskDirective } from '../../../pipi/app-mask.directive';
+import { Pessoa } from '../../../models/Pessoa';
+import { switchMap } from 'rxjs';
+import { Conta } from '../../../models/Conta';
+import { Router } from '@angular/router';
+import { AuthenticationService } from '../../../services/auth/authentication.service';
+import { BancoService } from '../../../services/banco.service';
 
 
 @Component({
@@ -38,54 +44,7 @@ export class CadastroComponent implements OnInit {
     });
   }
 
-  // onSubmit() {
-  //   if (this.formCadastro.valid) {
-      
-  //     const email = this.formCadastro.value.email;
-  //     const password = this.formCadastro.value.password;
-  //     console.log(email, password);
-  //     const pessoa: Pessoa = {
-  //       IdPessoa: '',
-  //       Nome: `${this.formCadastro.value.firstName} ${this.formCadastro.value.lastName}`,
-  //       CPF: this.formCadastro.value.cpf,
-  //       email: this.formCadastro.value.email,
-  //       senha: this.formCadastro.value.password,
-  //       telefone: this.formCadastro.value.telefone
-  //     };
-  //     console.log(pessoa);
-  //     this.authService.signUpUser(email, password).pipe(
-  //       switchMap(responseData => {
-  //         console.log(responseData);
-  //         return this.bancoService.adicionarPessoa(pessoa).pipe(
-  //           switchMap((pessoaResponse: any) => {
-  //             const idPessoa = pessoaResponse.id; // Assuming Firebase returns the generated ID in a 'name' property
-  //             console.log('idPessoa: ' + idPessoa);
-  //             const conta: Conta = {
-  //               IdConta: '', // Pode ser gerado pelo Firebase
-  //               IdPessoa: idPessoa,
-  //               ChavePix: '', // Chave Pix
-  //                Numero: 123456, // Número da conta
-  //               Agencia: 1234, // Agência da conta
-  //               Saldo: 0 // Saldo inicial
-  //             };
-
-  //             console.log(conta);
-  //             return this.bancoService.adicionarConta(conta, idPessoa);
-  //           })
-  //         );
-  //       })
-  //     ).subscribe({
-  //       next: contaResponse => {
-  //         console.log(contaResponse);
-  //         this.router.navigate(['/app/home']);
-  //       },
-  //       error: (error: any) => {
-  //         console.log(error);
-  //       }
-  //     });
-  //   }
-  //   console.log(this.formCadastro);
-  // }
+  
   onSubmit() {
     if (this.formCadastro.valid) {
       const email = this.formCadastro.value.email;
