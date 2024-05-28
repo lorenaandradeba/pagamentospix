@@ -41,7 +41,6 @@ export class LoginComponent {
     if (this.loginForm.valid) {
       const email = this.loginForm.value.email;
       const password = this.loginForm.value.password;
-      console.log(email, password);
       let authObservable: Observable<any>;
 
       authObservable = this.authService.loginUser(email, password);
