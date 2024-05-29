@@ -176,6 +176,6 @@ export class AuthenticationService {
   getUsuarioAutenticado(): string  {
     const user = this.userSubject.value;
     console.log(user);
-    return user ? user.email : '';
+    return user ? user.id : '';
   }
 }

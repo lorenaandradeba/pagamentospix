@@ -1,8 +1,7 @@
 export interface Pix {
-    IdPix: string;
-    IdConta: string;
-    IdPessoa: string;
+    IdUsuario: string;
     IdTipoPix: string;
+    ChavePix: string;
     DataCriacao: Date;
     Status: string;
   }

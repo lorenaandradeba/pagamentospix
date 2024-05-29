@@ -1,9 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit, input } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { Usuario } from '../../../../models/Usuario';
-import { Pessoa } from '../../../../models/Pessoa';
-import { Conta } from '../../../../models/Conta';
+import { ContaPessoa } from '../../../../models/ContaPessoa';
 import { AuthenticationService } from '../../../../services/auth/authentication.service';
 import { BancoService } from '../../../../services/banco.service';
 
@@ -19,34 +17,38 @@ export class HomeComponent  implements OnInit  {
   src: string = '';
   saldo: string = '';
   barra: string = "/assets/icons/progresso.svg";
-  email: string ='';
-  pessoaNome: string ='';
-  pessoaId: string ='';
-  conta: Conta | null = null;
+  idUsuario: string ='';
+  contaPessoa: ContaPessoa = {
+    IdUsuario: '',
+    IdContaPessoa: '',
+    Nome: '',
+    CPF: '',
+    email: '',
+    senha: '',
+    telefone: '',
+    Numero: 0,
+    Agencia: 0,
+    Saldo: 0
+};
+
   constructor(
     private authService: AuthenticationService,
     private bancoService: BancoService
   ) {}
   ngOnInit(): void {
-    this.email = this.authService.getUsuarioAutenticado();
-    if (this.email !== '') {
-      this.bancoService.getPessoaPorEmail(this.email).subscribe(pessoaResp => {
-        if (pessoaResp) {
-          console.log('pessoa: ', pessoaResp);
-          this.pessoaNome = pessoaResp.Nome;
+    this.idUsuario = this.authService.getUsuarioAutenticado();
+    if (this.idUsuario !== '') {
+      this.bancoService.getContaPessoa(this.idUsuario).subscribe((resposta: any) => {
+        if (resposta) {
+          const chave = Object.keys(resposta)[0]; 
+          const pessoaResp = resposta[chave]; 
+          console.log('pessoa:', pessoaResp);
           this.nome = pessoaResp.Nome;
+          console.log('nome' + this.nome);
+          this.saldo = pessoaResp.Saldo != null ? pessoaResp.Saldo.toFixed(2) : '0.00';
           this.src = `/assets/icons/avatar.svg`;
         }
-        console.log('pessoa: ', pessoaResp);
-      });
-      
-      this.bancoService.getContaPorEmail(this.email).subscribe(contaResp => {
-          this.conta = contaResp;
-          this.saldo = contaResp? contaResp.Saldo.toFixed(2) : '0.00';
-          console.log('conta: ', contaResp);
-      });
-        
-      
+      });      
     }
   }
 }

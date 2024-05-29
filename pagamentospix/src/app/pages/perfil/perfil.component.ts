@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthenticationService } from '../../services/auth/authentication.service';
 import { BancoService } from '../../services/banco.service';
-import { Pessoa } from '../../models/Pessoa';
+import { ContaPessoa } from '../../models/ContaPessoa';
 
 @Component({
   selector: 'app-perfil',
@@ -13,11 +13,11 @@ import { Pessoa } from '../../models/Pessoa';
   styleUrls: ['./perfil.component.css']
 })
 export class PerfilComponent implements OnInit {
-  pessoa?: Pessoa;
+  contaPessoa?: ContaPessoa;
   perfilForme: FormGroup;
   agencia: any;
   conta: any;
-  email: string = '';
+  idUsuario: string = '';
 
   constructor(private fb: FormBuilder,
               private authService: AuthenticationService,
@@ -32,30 +32,28 @@ export class PerfilComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.email = this.authService.getUsuarioAutenticado();
-    if (this.email !== '') {
-      this.bancoService.getPessoaPorEmail(this.email).subscribe(pessoaResp => {
-        if (pessoaResp) {
-          console.log('pessoa: ', pessoaResp);
-          this.pessoa = pessoaResp;
+    this.idUsuario = this.authService.getUsuarioAutenticado();
+    if (this.idUsuario !== '') {
+      this.bancoService.getContaPessoa(this.idUsuario).subscribe((resposta: any) => {
+        if (resposta) {
+          const chave = Object.keys(resposta)[0]; 
+          const pessoaResp = resposta[chave]; 
+          this.contaPessoa = pessoaResp;
+          this.conta = this.contaPessoa?.Numero;
+          this.agencia = this.contaPessoa?.Agencia;
           this.atualizarFormulario();
         }
-      });
-      
-      this.bancoService.getContaPorEmail(this.email).subscribe(contaResp => {
-        this.conta = contaResp?.Numero;
-        this.agencia = contaResp?.Agencia;
-        console.log('conta: ', contaResp);
       });
     }
   }
 
   atualizarFormulario() {
     this.perfilForme.patchValue({
-      nome: this.pessoa?.Nome,
-      cpf: this.pessoa?.CPF,
-      telefone: this.pessoa?.telefone,
-      email: this.pessoa?.email,
+      nome: this.contaPessoa?.Nome,
+      cpf: this.contaPessoa?.CPF,
+      telefone: this.contaPessoa?.telefone,
+      email: this.contaPessoa?.email,
+      
       senha: '**********',
     });
   }
