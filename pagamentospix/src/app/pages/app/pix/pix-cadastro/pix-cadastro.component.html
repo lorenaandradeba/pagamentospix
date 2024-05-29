@@ -8,6 +8,9 @@
           <option value="3">EMAIL</option>
           <option value="4">CHAVE ALEATÓRIA</option>
         </select>
+        <div style="color: white;">
+          {{ sucesso ? 'PIX cadastrado com sucesso!' : mensagemErro }}
+        </div>
         <button type="submit">Cadastrar</button>
       </form>
     </div>

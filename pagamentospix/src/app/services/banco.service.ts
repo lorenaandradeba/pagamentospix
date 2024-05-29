@@ -46,6 +46,7 @@ export class BancoService {
   }
   cadastrarChavePix(idUsuario: string, chavePix: string, tipoPix: string): Observable<any> {
     const token = this.authService.getToken();
+    console.log(token);
     const url = `${this.apiURL}/pix/${idUsuario}.json?auth=${token}`;
     const pix: Pix = {
         IdUsuario: idUsuario,
@@ -62,6 +63,24 @@ export class BancoService {
         })
     );
 }
+getTodasChavesPix(idUsuario: string): Observable<Pix[]> {
+  const token = this.authService.getToken();
+  const url = `${this.apiURL}/pix/${idUsuario}.json?auth=${token}`;
+  console.log('URL usada para obter todas as chaves PIX:', url);
+  return this.http.get<{ [key: string]: Pix }>(url).pipe(
+    map((resposta: { [key: string]: Pix }) => {
+      const chaves = Object.values(resposta);
+      console.log('Todas as chaves:', chaves);
+      return chaves;
+    }),
+    catchError(error => {
+      console.error('Erro ao obter todas as chaves PIX:', error);
+      return throwError(error);
+    })
+  );
+}
+
+
 
   
  }
