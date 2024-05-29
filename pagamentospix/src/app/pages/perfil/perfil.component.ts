@@ -1,34 +1,62 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AuthenticationService } from '../../services/auth/authentication.service';
+import { BancoService } from '../../services/banco.service';
+import { Pessoa } from '../../models/Pessoa';
 
 @Component({
   selector: 'app-perfil',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './perfil.component.html',
-  styleUrl: './perfil.component.css'
+  styleUrls: ['./perfil.component.css']
 })
-export class PerfilComponent {
-
+export class PerfilComponent implements OnInit {
+  pessoa?: Pessoa;
   perfilForme: FormGroup;
   agencia: any;
   conta: any;
+  email: string = '';
 
-  constructor(private fb: FormBuilder) {
-    if (localStorage.getItem('agencia') && localStorage.getItem('conta')) {
-      this.agencia = localStorage.getItem('agencia');
-      this.conta = localStorage.getItem('conta');
-    }
-    this.agencia = "000-0";
-    this.conta = "0000-0";
-
+  constructor(private fb: FormBuilder,
+              private authService: AuthenticationService,
+              private bancoService: BancoService) {
     this.perfilForme = this.fb.group({
-      nome: ['Daniel Oliveira da Silva', Validators.required],
-      cpf: ['086.025.875-03', Validators.required],
-      telefone: ['(73) 99862-6051', Validators.required],
-      email: ['danieloliviera.s558@gmail.com', Validators.required],
+      nome: ['', Validators.required],
+      cpf: ['', Validators.required],
+      telefone: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
       senha: ['**********', Validators.required],
+    });
+  }
+
+  ngOnInit(): void {
+    this.email = this.authService.getUsuarioAutenticado();
+    if (this.email !== '') {
+      this.bancoService.getPessoaPorEmail(this.email).subscribe(pessoaResp => {
+        if (pessoaResp) {
+          console.log('pessoa: ', pessoaResp);
+          this.pessoa = pessoaResp;
+          this.atualizarFormulario();
+        }
+      });
+      
+      this.bancoService.getContaPorEmail(this.email).subscribe(contaResp => {
+        this.conta = contaResp?.Numero;
+        this.agencia = contaResp?.Agencia;
+        console.log('conta: ', contaResp);
+      });
+    }
+  }
+
+  atualizarFormulario() {
+    this.perfilForme.patchValue({
+      nome: this.pessoa?.Nome,
+      cpf: this.pessoa?.CPF,
+      telefone: this.pessoa?.telefone,
+      email: this.pessoa?.email,
+      senha: '**********',
     });
   }
 

@@ -29,7 +29,6 @@ export class HomeComponent  implements OnInit  {
   ) {}
   ngOnInit(): void {
     this.email = this.authService.getUsuarioAutenticado();
-    console.log('email: ', this.email);
     if (this.email !== '') {
       this.bancoService.getPessoaPorEmail(this.email).subscribe(pessoaResp => {
         if (pessoaResp) {
