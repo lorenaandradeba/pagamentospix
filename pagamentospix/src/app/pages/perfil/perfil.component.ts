@@ -13,7 +13,18 @@ import { ContaPessoa } from '../../models/ContaPessoa';
   styleUrls: ['./perfil.component.css']
 })
 export class PerfilComponent implements OnInit {
-  contaPessoa?: ContaPessoa;
+  contaPessoa: ContaPessoa = {
+    IdUsuario: '',
+    IdContaPessoa: '',
+    Nome: '',
+    CPF: '',
+    email: '',
+    senha: '',
+    telefone: '',
+    Numero: 0,
+    Agencia: 0,
+    Saldo: 0
+};
   perfilForme: FormGroup;
   agencia: any;
   conta: any;
