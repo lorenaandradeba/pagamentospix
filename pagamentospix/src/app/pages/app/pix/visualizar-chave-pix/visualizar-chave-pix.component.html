@@ -1,1 +1,9 @@
-<p>visualizar-chave-pix works!</p>
+<div class="visualizar-chave-pix">
+    <h1>Visualizar Chave Pix</h1>
+    <div *ngFor="let pixKey of pixKeys" class="pix-key">
+        <div class="pix-key-itens">
+            <p class="pix-type"><strong> {{ pixKey.type }}</strong></p>
+            <p class="pix-value"><strong>Chave Pix:</strong> {{ pixKey.key }}</p>
+        </div>
+    </div>
+</div>

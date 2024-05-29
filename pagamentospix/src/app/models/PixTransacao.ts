@@ -3,6 +3,6 @@ export interface PixTransacao {
     Valor: number;
     Data: Date;
     ChaveDeSeguranca: string;
-    IdContaOrigem: string;
+    chavePixOrigem: string;
     chavePixDestino: string;
   }
