@@ -2,9 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AppMaskDirective } from '../../../pipi/app-mask.directive';
-import { Pessoa } from '../../../models/Pessoa';
 import { switchMap } from 'rxjs';
-import { Conta } from '../../../models/Conta';
+import { ContaPessoa } from '../../../models/ContaPessoa';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../../../services/auth/authentication.service';
 import { BancoService } from '../../../services/banco.service';
@@ -49,40 +48,28 @@ export class CadastroComponent implements OnInit {
     if (this.formCadastro.valid) {
       const email = this.formCadastro.value.email;
       const password = this.formCadastro.value.password;
-   
+      const numeroConta = this.bancoService.gerarNumeroConta();
+      console.log('numeroConta: ' + numeroConta);
       this.authService.signUpUser(email, password).pipe(
         switchMap(responseData => {
-          const idPessoa = responseData.localId; // Supondo que o Firebase retorne o UID do usuário
-          console.log('idPessoa: ' + idPessoa);
-          const pessoa: Pessoa = {
-            IdPessoa: '',
+          const contapessoa: ContaPessoa = {
+            IdContaPessoa: '',
+            IdUsuario: responseData.localId,
             Nome: `${this.formCadastro.value.firstName} ${this.formCadastro.value.lastName}`,
             CPF: this.formCadastro.value.cpf,
             telefone: this.formCadastro.value.telefone,
             email: this.formCadastro.value.email,
             senha: this.formCadastro.value.password,
+            Numero: numeroConta, // Número da conta
+            Agencia: 1234, // Agência da conta
+            Saldo: 0 // Saldo inicial
           };
-          console.log('SignUp Response Data: ', responseData);
-          return this.bancoService.adicionarPessoa(pessoa).pipe(
-            switchMap((pessoaResponse: any) => {
-              console.log('Pessoa Response: ', pessoaResponse);
-              const numeroConta = this.bancoService.gerarNumeroConta();
-              console.log('numeroConta: ' + numeroConta);
-              const conta: Conta = {
-                IdConta: '', // Pode ser gerado pelo Firebase
-                email: this.formCadastro.value.email,
-                ChavePix: '', // Adicione a lógica para gerar ou obter a chave Pix
-                Numero: numeroConta, // Número da conta
-                Agencia: 1234, // Agência da conta
-                Saldo: 0 // Saldo inicial
-              };
-              return this.bancoService.adicionarConta(conta, idPessoa);
-            })
-          );
+          console.log('Dados do SignUp Response:', responseData); // Adicionado para depuração
+          return this.bancoService.adicionarContaPessoa(contapessoa);
         })
       ).subscribe({
         next: contaResponse => {
-          console.log('Conta Response: ', contaResponse);
+          console.log('Resposta da Conta:', contaResponse); // Adicionado para depuração
           this.router.navigate(['/app/home']);
         },
         error: (error: any) => {
@@ -95,6 +82,7 @@ export class CadastroComponent implements OnInit {
     }
     console.log(this.formCadastro);
   }
+
   
   
   get firstName() {
