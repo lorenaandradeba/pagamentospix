@@ -173,4 +173,9 @@ export class AuthenticationService {
     console.log(user);
     return user ? user.token : null;
   }
+  getUsuarioAutenticado(): string  {
+    const user = this.userSubject.value;
+    console.log(user);
+    return user ? user.email : '';
+  }
 }

@@ -1,6 +1,6 @@
 export interface Conta {
     IdConta: string;
-    IdPessoa: string;
+    email: string;
     ChavePix: string;
     Numero: number;
     Agencia: number;

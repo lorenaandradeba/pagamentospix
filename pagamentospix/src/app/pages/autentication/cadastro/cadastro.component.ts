@@ -49,28 +49,28 @@ export class CadastroComponent implements OnInit {
     if (this.formCadastro.valid) {
       const email = this.formCadastro.value.email;
       const password = this.formCadastro.value.password;
-      const pessoa: Pessoa = {
-        IdPessoa: '', // Será gerado pelo Firebase
-        Nome: `${this.formCadastro.value.firstName} ${this.formCadastro.value.lastName}`,
-        CPF: this.formCadastro.value.cpf,
-        telefone: this.formCadastro.value.telefone,
-        email: this.formCadastro.value.email,
-        senha: this.formCadastro.value.password,
-      };
-  
+   
       this.authService.signUpUser(email, password).pipe(
         switchMap(responseData => {
+          const idPessoa = responseData.localId; // Supondo que o Firebase retorne o UID do usuário
+          console.log('idPessoa: ' + idPessoa);
+          const pessoa: Pessoa = {
+            IdPessoa: '',
+            Nome: `${this.formCadastro.value.firstName} ${this.formCadastro.value.lastName}`,
+            CPF: this.formCadastro.value.cpf,
+            telefone: this.formCadastro.value.telefone,
+            email: this.formCadastro.value.email,
+            senha: this.formCadastro.value.password,
+          };
           console.log('SignUp Response Data: ', responseData);
           return this.bancoService.adicionarPessoa(pessoa).pipe(
             switchMap((pessoaResponse: any) => {
               console.log('Pessoa Response: ', pessoaResponse);
-              const idPessoa = pessoaResponse.name; 
-              console.log('idPessoa: ' + idPessoa);
               const numeroConta = this.bancoService.gerarNumeroConta();
               console.log('numeroConta: ' + numeroConta);
               const conta: Conta = {
                 IdConta: '', // Pode ser gerado pelo Firebase
-                IdPessoa: idPessoa,
+                email: this.formCadastro.value.email,
                 ChavePix: '', // Adicione a lógica para gerar ou obter a chave Pix
                 Numero: numeroConta, // Número da conta
                 Agencia: 1234, // Agência da conta
