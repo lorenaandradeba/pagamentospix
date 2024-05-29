@@ -1,1 +1,39 @@
-tudo okay
+<div class="extrato-layout">
+    <div class="extrato-filter">
+        <div class="extrato-input">
+            <label for="datainicial">Data Inicial</label>
+            <input type="date" id="datainicial">
+            
+
+        </div>
+        <div class="extrato-input"> 
+            <label for="datafinal">Data Final</label>
+            <input type="date" id="datafinal">
+            
+        </div>
+    </div>
+    <div class="extrato-table">
+        <div>
+            <h3>Últimas transações</h3>
+        </div>
+        <div *ngFor="let item of traferencia" class="extrato-item">
+            <div *ngIf="item.chavePixOrigem == minhaChavePix ">
+                <img src="/assets/icons/eviado.png" alt="enviado" > 
+            </div>
+            <div *ngIf="item.chavePixOrigem != minhaChavePix ">
+                <img src="/assets/icons/recebido.png" alt="recebido" > 
+            </div>
+            <div>
+                {{item.ChaveDeSeguranca}}
+                {{item.chavePixDestino}}
+                {{item.Data | date: 'dd/MM/yyyy'}} 
+            </div>
+            <div>
+                R${{item.Valor}}
+            </div>
+        </div>
+        <div class="extrato-item-footer" >
+                <a>...</a>
+        </div>
+    </div>
+</div>
