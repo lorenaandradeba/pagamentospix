@@ -1,19 +1,22 @@
 <div class="transferencia-container">
     <div class="transferencia-box">
-        <div class="saldo">Saldo disponível: R$ 800,00</div>
-        <div class="valor">
-            <label for="valorTransferencia"></label>
-            <input type="text" id="valorTransferencia" placeholder="R$ 00,00">
-        </div>
-        <div class="chave-pix">
-            <label for="chave-pix">Informe a chave pix</label>
-            <input type="text" id="chave-pix" placeholder="123.333.555-66">
-        </div>
-        <div class="info-conta">
-            <h3>Márcio Da Silva</h3>
-            <h4>Banco Fictício do Brasil</h4>
-            <h5>AG. 1000 Conta 45678-0</h5>
-        </div>
-        <button class="enviar-pix">Enviar Pix</button>
+
+          <form class="form-transferencia" [formGroup]="transferenciaForm" (ngSubmit)="onSubmit()" >
+            <div class="saldo">Saldo disponível: R$ 800,00</div>
+            <div class="valor">
+                <label for="valorTransferencia"></label>
+                <input type="text" id="valorTransferencia" placeholder="R$ 0,00" appMask="valor" formControlName="valorTransferencia">
+            </div>
+            <div class="chave-pix">
+                <label for="chave-pix">Informe a chave pix</label>
+                <input type="text" id="chave-pix" placeholder="123.333.555-66" formControlName="chavePix">
+            </div>
+            <div class="info-conta">
+                <h3>{{Banco.Nome}}</h3>
+                <h4>{{Banco.Insituicao}}</h4>
+                <h5>AG. {{Banco.Agencia}} Conta {{Banco.Conta}}</h5>
+            </div>
+            <button class="enviar-pix">Enviar Pix</button>
+        </form>
     </div>
 </div>

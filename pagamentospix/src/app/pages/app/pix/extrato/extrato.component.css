@@ -1,12 +1,12 @@
 .extrato-layout{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 60%;
-    height: 100%;
-    gap: 30px;
+    justify-content: baseline;
+    max-width: 472px;
+    width: 1000%;
+    gap: 45px;
     margin: 0 auto;
+    margin-top: 42px;
 }
 .extrato-filter{
     display: flex;
@@ -15,49 +15,113 @@
     align-items: center;
     gap: 30px;
     margin: 0 auto;
- 
 }
 .extrato-input{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: first baseline;
+
     gap: 10px;
     color: white;
+}
+.extrato-input label{
+    font-family: 'Outfit', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #6F6F6F;
+    width: 122px;
+    height: 21px;
+
+}
+.extrato-input input{
+    background-color:#818181;
+    width: 167px;
+    height: 42px;
+    border-radius: 12px;
+    border: none;
+    outline: none;
+    color: #FFFFFF;
+    font-size: 22px;
+    font-family: 'Outfit', sans-serif;
+    text-align: center;
+    font-weight: 400;
+
+}
+.extrato-input input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 30%;
+
+  color: white;
 }
 .extrato-table{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: first baseline;
-    gap: 10px;
-}
-.extrato-table h3{
-    color: #FFFFFF;
-    font-family: 'Moserrat Alternates', sans-serif;
-}
-.extrato-item{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    gap: 5px;
-    background-color: #332940;
-    padding: 10px;
-    color: #FFFFFF;
-    font-family: 'Moserrat Alternates', sans-serif;
-    width: 100%;
-}
-.extrato-item-footer{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-    background-color: #332940;
-    padding: 10px;
-    color: #FFFFFF;
-    font-family: 'Moserrat Alternates', sans-serif;
-    width: 100%;
+    gap: 22px;
+
 }
 
+.extrato-table h3{
+    color: #ffffffbf;
+    font-family: 'Moserrat Alternates', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.extrato-body {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  max-height: 456px;
+  overflow-y: auto;
+}
+.extrato-body::-webkit-scrollbar {
+  width: 10px; /* Largura da barra de rolagem */
+  background-color: #6F6F6F;
+}
+
+.extrato-body::-webkit-scrollbar-thumb {
+  background-color: #BB86FC; /* Cor do botão da barra de rolagem */
+  border-radius: 5px; /* Raio do botão da barra de rolagem */
+}
+
+.extrato-body::-webkit-scrollbar-thumb:hover {
+  background-color: #bb86fc74; /* Cor do botão da barra de rolagem quando hover */
+}
+
+
+.extrato-item{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  gap: 20px;
+  background-color: #332940;
+  width: 452px;
+  width: 99%;
+  max-width: 472px;
+  box-sizing: border-box;
+}
+.extrato-item:hover{
+  background-color: #33294093;
+}
+.extrato-item h3{
+  font-size: 16px;
+  font-family: 'Moserrat Alternates', sans-serif;
+  font-weight: 400;
+}
+.extrato-item p{
+  font-size: 12px;
+  font-family: 'Moserrat Alternates', sans-serif;
+  font-weight: 400;
+  color: #FFFFFFBF;
+}
+.extrato-item .detalhes{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: baseline;
+  width: 100%;
+  gap: 3px;
+}

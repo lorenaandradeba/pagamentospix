@@ -31,7 +31,7 @@ export class PixCadastroComponent implements OnInit {
   sucesso: boolean = false;
   mensagemErro: string = '';
   chavePix: string ='';
-  constructor(private fb: FormBuilder, 
+  constructor(private fb: FormBuilder,
     private authService: AuthenticationService,
     private bancoService: BancoService) {
     this.pixForm = this.fb.group({
@@ -39,9 +39,9 @@ export class PixCadastroComponent implements OnInit {
       keyValue: [''] // Adicionado keyValue ao formulário
     });
   }
-  
+
   ngOnInit(): void {
-    
+
   }
 
   onSubmit() {
@@ -58,8 +58,8 @@ export class PixCadastroComponent implements OnInit {
     } else {
       if (this.idUsuario !== '') {
         this.bancoService.getContaPessoa(this.idUsuario).subscribe((resposta: any) => {
-            const chave = Object.keys(resposta)[0]; 
-            this.contaPessoa = resposta[chave]; 
+            const chave = Object.keys(resposta)[0];
+            this.contaPessoa = resposta[chave];
             console.log('contaPessoa', this.contaPessoa);
             if (tipoPix === '1') {
               this.chavePix = this.contaPessoa.CPF;
@@ -67,11 +67,11 @@ export class PixCadastroComponent implements OnInit {
               this.chavePix = this.contaPessoa!.telefone;
             } else {
               this.chavePix = this.contaPessoa!.email;
-            }  
+            }
             if (this.chavePix !== '') {
               this.adicionarChavePix(this.chavePix, tipoPix);
             }
-        });  
+        });
 
       }
     }
@@ -120,10 +120,10 @@ export class PixCadastroComponent implements OnInit {
   //     }
   //   );
   // }
-  
-  
-  
-  
+
+
+
+
 }
 
 function gerarChaveAleatoria(): string {

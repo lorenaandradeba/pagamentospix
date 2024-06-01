@@ -1,0 +1,15 @@
+
+//abir o ng serve 
+{
+    "version": "0.2.0",
+    "tasks": [
+        {
+            "label": "npm: start",
+            "type": "shell",
+            "command": "npm start",
+            "problemMatcher": [
+                "$tsc"
+            ]
+        }
+    ]
+}
