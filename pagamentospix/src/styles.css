@@ -1,8 +1,24 @@
-*{
-    margin: 0;
-    padding: 0;
-   
+
+* {
+  margin: 0;
+  padding: 0;
 }
+
 body {
-    background-color: #232526;
+  background-color: #232526;
+}
+
+/* Estilos da barra de rolagem */
+::-webkit-scrollbar {
+  width: 14px;
+  background-color: #6F6F6F;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #BB86FC;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: white;
 }

@@ -1,9 +1,20 @@
-<div class="visualizar-chave-pix">
-    <h1>Visualizar Chave Pix</h1>
+<div class="container-pix-layout">
+  <div class="visualizar-chave-pix">
     <div *ngFor="let pixKey of pixKeys" class="pix-key">
-        <div class="pix-key-itens">
-            <p class="pix-type"><strong> {{ pixKey.type }}</strong></p>
-            <p class="pix-value"><strong>Chave Pix:</strong> {{ pixKey.key }}</p>
+      <div class="pix-key-itens">
+        <div class="pix-key">
+          <img [src]="getPixIcon(pixKey.type)" alt="{{pixKey.type}}">
+          <div class="pix-value">
+            <p>{{pixKey.type}}</p>
+            <p>{{pixKey.key}}</p>
+          </div>
         </div>
+        <button class="pix-key-btn"><img src="/assets/icons/pontos.png" alt="opções"></button>
+      </div>
     </div>
+    <div *ngIf="pixKeys.length === 0" class="pix-key-vazia" >
+      <p style="text-align: center;color: white;">Nenhuma chave encontrada </p>
+      <button  routerLink="/app/pix-cadastro" >Cadastrar chave</button>
+    </div>
+  </div>
 </div>

@@ -14,14 +14,10 @@ import { Observable } from 'rxjs';
 })
 export class LoginComponent {
   loginForm!: FormGroup;
-  showPassword = false;
-  isLoading = false;
-  error: string = '';
-  isError: boolean = false;
+
 
   constructor(private fb: FormBuilder,
-    private router: Router,
-    private authService: AuthenticationService) { }
+    private router: Router) { }
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -38,31 +34,8 @@ export class LoginComponent {
   }
 
   onSubmit() {
-    if (this.loginForm.valid) {
-      const email = this.loginForm.value.email;
-      const password = this.loginForm.value.password;
-      let authObservable: Observable<any>;
+    console.log(this.loginForm.value);
 
-      authObservable = this.authService.loginUser(email, password);
-
-      authObservable.subscribe({
-        next: responseData => {
-          console.log(responseData);
-          this.isLoading = false;
-          this.isError = false;
-          this.router.navigate(['/app/home']);
-        },
-        error: (error: any) => { 
-          console.log(error);
-        }
-      });
-    }
-  }
-  get email() {
-    return this.loginForm.get('email');
-  }
-
-  get password() {
-    return this.loginForm.get('password');
+    this.router.navigate(['/app/home']);
   }
 }

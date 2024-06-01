@@ -2,7 +2,7 @@ import { Directive, HostListener, Input, ElementRef } from '@angular/core';
 
 @Directive({
   standalone: true,
-  selector: '[appMask]'
+  selector: '[appMask]',
 })
 export class AppMaskDirective {
   @Input('appMask') mask: string = '';
@@ -17,8 +17,18 @@ export class AppMaskDirective {
     } else if (this.mask === 'telefone') {
       value = this.formatTelefone(value);
     }
+    if (this.mask === 'valor') {
+      value = this.formatValor(value);
+    }
 
     this.el.nativeElement.value = value;
+  }
+  formatValor(value: any): any {
+    if (!value) return '';
+    value = value.replace(/\D/g, '');
+    value = value.replace(/(\d)(\d{2})$/, '$1,$2');
+    value = value.replace(/(?=(\d{3})+(\D))\B/g, '.');
+    return 'R$ ' + value;
   }
 
   private formatCPF(value: string): string {
