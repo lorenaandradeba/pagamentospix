@@ -2,7 +2,7 @@
     <div class="transferencia-box">
 
           <form class="form-transferencia" [formGroup]="transferenciaForm" (ngSubmit)="onSubmit()" >
-            <div class="saldo">Saldo disponível: R$ 800,00</div>
+            <div class="saldo">Saldo disponível: R$ {{saldo}}</div>
             <div class="valor">
                 <label for="valorTransferencia"></label>
                 <input type="text" id="valorTransferencia" placeholder="R$ 0,00" appMask="valor" formControlName="valorTransferencia">
